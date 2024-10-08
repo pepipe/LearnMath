@@ -1,6 +1,6 @@
 ﻿using System;
 using LearnMath.Learn;
-
+using LearnMath.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,10 +8,13 @@ namespace LearnMath
 {
     public class LearnMath : MonoBehaviour
     {
+        [Header("Learn Math")]
         [SerializeField] LearnSettings LearnSettings;
         [SerializeField] LearnResultView LearnResultView;
         [SerializeField] LearnOperationView LearnOperationView;
         [SerializeField] bool AutoStart = true;
+        [Header("UI")]
+        [SerializeField] DifficultyView DifficultyView;
 
         public LearnSettings Settings => LearnSettings;
         public LearnOperationView OperationView => LearnOperationView;
@@ -21,13 +24,27 @@ namespace LearnMath
         void Start()
         {
             if(AutoStart) StartLearnOperation(LearnSettings.OperationType);
+            
+            DifficultyView.SetDifficulty(Settings.Difficult);
+            DifficultyView.Difficulty.onValueChanged.AddListener(DifficultyChangeHandler);
         }
 
         void OnDestroy()
         {
+            DifficultyView.Difficulty.onValueChanged.RemoveListener(DifficultyChangeHandler);
+
             if (CurrentOperation == null) return;
             CurrentOperation.OnStartAgain -= StartAgainHandler;
             CurrentOperation.Dispose();
+        }
+
+        public void ResetAndStartLearnOperation(int operationType)
+        {
+            if(operationType > Enum.GetValues(typeof(LearnSettings.LearnOperationType)).Length) return;
+
+            Settings.OperationType = (LearnSettings.LearnOperationType)operationType;
+            CurrentOperation.Reset();
+            StartAgainHandler();
         }
 
         public void StartLearnOperation(LearnSettings.LearnOperationType operationType)
@@ -52,6 +69,15 @@ namespace LearnMath
         public void Restart()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        void DifficultyChangeHandler(int difficultyDropdownValue)
+        {
+            if(difficultyDropdownValue > Enum.GetValues(typeof(LearnSettings.LearnDifficult)).Length) return;
+            
+            Settings.Difficult = (LearnSettings.LearnDifficult)difficultyDropdownValue;
+            DifficultyView.SetDifficulty(Settings.Difficult);
+            ResetAndStartLearnOperation((int)Settings.OperationType);
         }
 
         void StartAgainHandler()

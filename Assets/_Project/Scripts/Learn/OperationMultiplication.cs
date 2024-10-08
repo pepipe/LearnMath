@@ -50,7 +50,7 @@ namespace LearnMath.Learn
                 case LearnSettings.LearnDifficult.Medium:
                     return Random.Range(1, 20);
                 case LearnSettings.LearnDifficult.Hard:
-                    return Random.Range(1, 100);
+                    return Random.Range(1, 31);
             }
         }
     }
