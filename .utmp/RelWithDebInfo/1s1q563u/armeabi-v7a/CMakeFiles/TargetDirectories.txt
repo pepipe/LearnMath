@@ -1,5 +1,0 @@
-D:/projects/unity/LearnMath/.utmp/RelWithDebInfo/1s1q563u/armeabi-v7a/CMakeFiles/edit_cache.dir
-D:/projects/unity/LearnMath/.utmp/RelWithDebInfo/1s1q563u/armeabi-v7a/CMakeFiles/rebuild_cache.dir
-D:/projects/unity/LearnMath/.utmp/RelWithDebInfo/1s1q563u/armeabi-v7a/GameActivity/CMakeFiles/game.dir
-D:/projects/unity/LearnMath/.utmp/RelWithDebInfo/1s1q563u/armeabi-v7a/GameActivity/CMakeFiles/edit_cache.dir
-D:/projects/unity/LearnMath/.utmp/RelWithDebInfo/1s1q563u/armeabi-v7a/GameActivity/CMakeFiles/rebuild_cache.dir
