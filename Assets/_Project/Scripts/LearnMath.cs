@@ -25,6 +25,7 @@ namespace LearnMath
         {
             if(AutoStart) StartLearnOperation(LearnSettings.OperationType);
             
+			if(!DifficultyView) return;
             DifficultyView.SetDifficulty(Settings.Difficult);
             DifficultyView.Difficulty.onValueChanged.AddListener(DifficultyChangeHandler);
         }
