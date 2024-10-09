@@ -80,7 +80,7 @@ namespace LearnMath.UnityTests
             yield return null;
             yield return null;
 
-            var operationDigits = _learnMath.OperationView.GetComponentsInChildren<Digit>();
+            var operationDigits = _learnMath.OperationView.GetComponentsInChildren<Number>();
             Assert.IsNotNull(operationDigits);
             Assert.AreEqual(_learnMath.CurrentOperation.Number1, operationDigits[0].GetDigit());
             Assert.AreEqual(_learnMath.CurrentOperation.Number2, operationDigits[1].GetDigit());
@@ -98,7 +98,7 @@ namespace LearnMath.UnityTests
             yield return null;
             yield return null;
 
-            var operationDigits = _learnMath.ResultView.GetComponentsInChildren<Digit>();
+            var operationDigits = _learnMath.ResultView.GetComponentsInChildren<Number>();
             Assert.IsNotNull(operationDigits);
             Assert.IsTrue(operationDigits.Any(digit => digit.GetDigit() == _learnMath.CurrentOperation.Result));
         }

@@ -8,7 +8,7 @@ namespace LearnMath.Learn
     {
         event Action<bool> OnAnswer;
 
-        void SetupOperation(Digit digitPrefab);
+        void SetupOperation(Number numberPrefab);
         void StartOperation(LearnOperation operation, IEnumerable<int> answers);
         void Reset();
     }

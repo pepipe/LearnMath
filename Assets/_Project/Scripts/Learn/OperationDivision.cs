@@ -13,7 +13,7 @@ namespace LearnMath.Learn
         {
             Sign = "\u00F7"; //ASCII Code 247, division sign
             _view = view;
-            _view.SetupOperation(_settings.DigitPrefab, _settings.SignPrefab, Sign);
+            _view.SetupOperation(_settings.NumberPrefab, _settings.SignPrefab, Sign);
         }
 
         public override void StartOperation()

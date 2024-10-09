@@ -23,7 +23,7 @@ namespace LearnMath.Learn
         
         public LearnDifficult Difficult;
         public LearnOperationType OperationType;
-        public Digit DigitPrefab;
+        public Number NumberPrefab;
         public Sign SignPrefab;
         public int AnswersCount = 4;
         [Tooltip("After answering correctly how long we want to wait until show next question? (in milliseconds)")]

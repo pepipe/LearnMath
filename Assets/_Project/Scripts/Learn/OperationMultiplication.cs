@@ -11,7 +11,7 @@ namespace LearnMath.Learn
         {
             Sign = "x";
             _view = view;
-            _view.SetupOperation(_settings.DigitPrefab, _settings.SignPrefab, Sign);
+            _view.SetupOperation(_settings.NumberPrefab, _settings.SignPrefab, Sign);
         }
 
         public override void StartOperation()

@@ -7,9 +7,9 @@ using UnityEngine.UI;
 namespace LearnMath.UI
 {
     [RequireComponent(typeof(Button))]
-    public class Digit : MonoBehaviour
+    public class Number : MonoBehaviour
     {
-        [SerializeField] TMP_Text DigitText;
+        [SerializeField] TMP_Text NumberText;
 
         public event Action<int> OnDigitClick;
 
@@ -27,7 +27,7 @@ namespace LearnMath.UI
 
         public void InitDigit(bool isInteractable, int digit)
         {
-            DigitText.text = digit.ToString(CultureInfo.InvariantCulture);
+            NumberText.text = digit.ToString(CultureInfo.InvariantCulture);
 
             if (!isInteractable)
             {
@@ -42,7 +42,7 @@ namespace LearnMath.UI
 
         public int GetDigit()
         {
-            return int.Parse(DigitText.text);
+            return int.Parse(NumberText.text);
         }
     }
 }

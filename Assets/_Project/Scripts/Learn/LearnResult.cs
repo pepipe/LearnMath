@@ -20,7 +20,7 @@ namespace LearnMath.Learn
             _view = view;
             _operation = operation;
 
-            _view.SetupOperation(_settings.DigitPrefab);
+            _view.SetupOperation(_settings.NumberPrefab);
             _view.OnAnswer += HandleAnswer;
         }
 

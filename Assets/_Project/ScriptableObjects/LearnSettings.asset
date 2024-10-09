@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df39ce8a8bbb25b4c93023a1d84719ed, type: 3}
   m_Name: LearnSettings
   m_EditorClassIdentifier: 
-  Difficult: 1
+  Difficult: 0
   OperationType: 0
-  DigitPrefab: {fileID: 3767443864194086896, guid: f9ddd11fc032bd942a2339b1c94b84dc, type: 3}
+  NumberPrefab: {fileID: 3767443864194086896, guid: f9ddd11fc032bd942a2339b1c94b84dc, type: 3}
   SignPrefab: {fileID: 3126046778450651605, guid: e49104f192754584ca702ab3091aee32, type: 3}
   AnswersCount: 4
   WaitTimeForNextQuestion: 2000

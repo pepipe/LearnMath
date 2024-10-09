@@ -24,15 +24,15 @@ namespace LearnMath.Learn
         public event Action<bool> OnAnswer;
 
         int _result;
-        IObjectPool<Digit> _answersDigitsPool;
+        IObjectPool<Number> _answersDigitsPool;
         RectTransform _rectTransform;
         float _digitWidth;
 
-        public void SetupOperation(Digit digitPrefab)
+        public void SetupOperation(Number numberPrefab)
         {
-            _digitWidth = digitPrefab.GetComponent<RectTransform>().rect.width;
-            _answersDigitsPool = new ObjectPool<Digit>(
-                createFunc: () => CreateDigit(digitPrefab),
+            _digitWidth = numberPrefab.GetComponent<RectTransform>().rect.width;
+            _answersDigitsPool = new ObjectPool<Number>(
+                createFunc: () => CreateDigit(numberPrefab),
                 actionOnGet: digit => digit.gameObject.SetActive(true),
                 actionOnRelease: digit => digit.gameObject.SetActive(false),
                 actionOnDestroy: digit => Destroy(digit.gameObject),
@@ -62,7 +62,7 @@ namespace LearnMath.Learn
             ResultText.text = "";
             foreach (Transform child in ResultsParent)
             {
-                var digit = child.GetComponent<Digit>();
+                var digit = child.GetComponent<Number>();
                 if(digit) _answersDigitsPool.Release(digit);
             }
         }
@@ -75,9 +75,9 @@ namespace LearnMath.Learn
             _rectTransform.sizeDelta = new Vector2(width, _rectTransform.sizeDelta.y);
         }
 
-        Digit CreateDigit(Digit digitPrefab)
+        Number CreateDigit(Number numberPrefab)
         {
-            var digit = Instantiate(digitPrefab, ResultsParent);
+            var digit = Instantiate(numberPrefab, ResultsParent);
             digit.OnDigitClick += HandleDigitClick;
             return digit;
         }

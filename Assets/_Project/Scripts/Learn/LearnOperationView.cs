@@ -8,15 +8,15 @@ namespace LearnMath.Learn
     {
         [SerializeField] Transform DigitsParent;
 
-        IObjectPool<Digit> _digitsPool;
+        IObjectPool<Number> _digitsPool;
         IObjectPool<Sign> _signPool;
         string _operationSign;
         
-        public void SetupOperation(Digit digitPrefab, Sign signPrefab, string operationSign)
+        public void SetupOperation(Number numberPrefab, Sign signPrefab, string operationSign)
         {
             _operationSign = operationSign;
-            _digitsPool = new ObjectPool<Digit>(
-                createFunc: () => CreateDigit(digitPrefab),
+            _digitsPool = new ObjectPool<Number>(
+                createFunc: () => CreateDigit(numberPrefab),
                 actionOnGet: digit => digit.gameObject.SetActive(true),
                 actionOnRelease: digit => digit.gameObject.SetActive(false),
                 actionOnDestroy: digit => Destroy(digit.gameObject),
@@ -51,7 +51,7 @@ namespace LearnMath.Learn
         {
             foreach (Transform child in DigitsParent)
             {
-                var digit = child.GetComponent<Digit>();
+                var digit = child.GetComponent<Number>();
                 if (digit) _digitsPool.Release(digit);
                 else
                 {
@@ -61,9 +61,9 @@ namespace LearnMath.Learn
             }
         }
 
-        Digit CreateDigit(Digit digitPrefab)
+        Number CreateDigit(Number numberPrefab)
         {
-            return Instantiate(digitPrefab, DigitsParent);
+            return Instantiate(numberPrefab, DigitsParent);
         }
 
         Sign CreateSign(Sign signPrefab)

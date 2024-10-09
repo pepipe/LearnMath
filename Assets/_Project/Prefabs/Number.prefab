@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6026846112225420835}
   - component: {fileID: 6846845511922892741}
   m_Layer: 5
-  m_Name: DigitText
+  m_Name: NumberText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 2025528558867166601}
   - component: {fileID: 3767443864194086896}
   m_Layer: 5
-  m_Name: Digit
+  m_Name: Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,4 +270,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036789dce72d450449b91312ae36f490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DigitText: {fileID: 6846845511922892741}
+  NumberText: {fileID: 6846845511922892741}
